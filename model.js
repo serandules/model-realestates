@@ -156,7 +156,7 @@ var schema = Schema({
 }, {collection: 'realestates'});
 
 schema.plugin(mongins());
-schema.plugin(mongins.user);
+schema.plugin(mongins.user());
 schema.plugin(mongins.permissions({
     workflow: 'model'
 }));
@@ -174,17 +174,8 @@ schema.plugin(mongins.tags({
 }));
 
 model.ensureIndexes(schema, [
-    {images: 1, updatedAt: 1, _id: 1},
     {price: 1, updatedAt: 1, _id: 1},
-    {price: 1, updatedAt: -1, _id: -1},
-    {price: 1, manufacturedAt: 1, updatedAt: 1, _id: 1},
-    {price: 1, manufacturedAt: 1, updatedAt: -1, _id: -1},
-    {price: 1, manufacturedAt: -1, updatedAt: 1, _id: 1},
-    {price: 1, manufacturedAt: -1, updatedAt: -1, _id: -1},
-    {price: 1, mileage: 1, updatedAt: 1, _id: 1},
-    {price: 1, mileage: 1, updatedAt: -1, _id: -1},
-    {price: 1, mileage: -1, updatedAt: 1, _id: 1},
-    {price: 1, mileage: -1, updatedAt: -1, _id: -1}
+    {price: 1, updatedAt: -1, _id: -1}
 ]);
 
 module.exports = mongoose.model('realestates', schema);
