@@ -149,7 +149,8 @@ var schema = Schema({
         type: [Schema.Types.ObjectId],
         ref: 'binaries',
         validator: types.array({
-            max: 5,
+            max: 10,
+            min: 1,
             validator: types.ref()
         })
     }
